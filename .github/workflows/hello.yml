@@ -1,0 +1,16 @@
+name: Heya!
+
+
+on:
+    push:
+        branches:
+            - main
+
+
+jobs:
+    heya_job:
+        runs-on: ubuntu-20.04
+        steps:
+            - name: Say heya
+            run: |
+                echo "Heya!"
