@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, useMatch } from 'react-router-dom'
-import { useApi } from './useApi'
+import { printVersion, useApi } from './useApi'
 import LoadingSpinner from './LoadingSpinner'
 import ErrorMessage from './ErrorMessage'
 import PokemonPage from './PokemonPage'
@@ -15,6 +15,13 @@ const mapResults = (({ results }) => results.map(({ url, name }) => ({
 const App = () => {
   const match = useMatch('/pokemon/:name')
   const { data: pokemonList, error, isLoading } = useApi('https://pokeapi.co/api/v2/pokemon/?limit=50', mapResults)
+
+  useEffect(() => {
+    const version = async () => {
+      await printVersion
+    }
+    version()
+  }, [])
 
   if (isLoading) {
     return <LoadingSpinner />

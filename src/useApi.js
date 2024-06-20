@@ -17,4 +17,13 @@ const useApi = (url, mapResults = (result) => result) => {
   return { data, isLoading, error }
 }
 
-export { useApi }
+const printVersion = async () => {
+  const response = await axios.get('/version')
+  // eslint-disable-next-line no-console
+  console.log(response)
+}
+
+export {
+  useApi,
+  printVersion
+}
