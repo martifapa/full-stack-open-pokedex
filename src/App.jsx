@@ -33,13 +33,14 @@ const App = () => {
   }
 
   return (
-    <Routes>
-      <Route exact path="/" element={<PokemonList pokemonList={pokemonList} />} />
-      <Route exact path="/pokemon/:name" element={
-        <PokemonPage pokemonList={pokemonList} previous={previous} next={next} />
-      } />
-    </Routes>
-  )
+    <>
+      <Routes>
+        <Route exact path="/" element={<PokemonList pokemonList={pokemonList} />} />
+        <Route exact path="/pokemon/:name" element={
+          <PokemonPage pokemonList={pokemonList} previous={previous} next={next} />
+        } />
+      </Routes>
+    </>)
 }
 
 export default App
